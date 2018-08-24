@@ -22,7 +22,8 @@ cudnnStatus_t CUDNNWINAPI cudnnQueryRuntimeError(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnQueryRuntimeError(handle, rstatus, mode, tag);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -46,7 +47,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetProperty(libraryPropertyType type, int *value)
   const auto tic = now();
   const auto res = orig_cudnnGetProperty(type, value);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -68,7 +70,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCreate(cudnnHandle_t *handle) {
   const auto tic = now();
   const auto res = orig_cudnnCreate(handle);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -92,7 +95,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDestroy(cudnnHandle_t handle) {
   const auto tic = now();
   const auto res = orig_cudnnDestroy(handle);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -116,7 +120,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetStream(cudnnHandle_t handle, cudaStream_t stre
   const auto tic = now();
   const auto res = orig_cudnnSetStream(handle, streamId);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -140,7 +145,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetStream(cudnnHandle_t handle, cudaStream_t *str
   const auto tic = now();
   const auto res = orig_cudnnGetStream(handle, streamId);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -166,7 +172,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateTensorDescriptor(tensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -199,7 +206,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSetTensor4dDescriptor(tensorDesc, format, dataType, n, c, h, w);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -234,7 +242,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSetTensor4dDescriptorEx(
       tensorDesc, dataType, n, c, h, w, nStride, cStride, hStride, wStride);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -273,7 +282,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetTensor4dDescriptor(
       tensorDesc, dataType, n, c, h, w, nStride, cStride, hStride, wStride);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -303,7 +313,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetTensorNdDescriptor(cudnnTensorDescriptor_t ten
   const auto res =
       orig_cudnnSetTensorNdDescriptor(tensorDesc, dataType, nbDims, dimA, strideA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -331,7 +342,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetTensorNdDescriptorEx(cudnnTensorDescriptor_t t
   const auto res =
       orig_cudnnSetTensorNdDescriptorEx(tensorDesc, format, dataType, nbDims, dimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -362,7 +374,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetTensorNdDescriptor(
       tensorDesc, nbDimsRequested, dataType, nbDims, dimA, strideA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -386,7 +399,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnGetTensorSizeInBytes(tensorDesc, size);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -412,7 +426,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyTensorDescriptor(tensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -443,7 +458,8 @@ cudnnStatus_t CUDNNWINAPI cudnnTransformTensor(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnTransformTensor(handle, alpha, xDesc, x, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -473,7 +489,8 @@ cudnnStatus_t CUDNNWINAPI cudnnAddTensor(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnAddTensor(handle, alpha, aDesc, A, beta, cDesc, C);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -499,7 +516,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateOpTensorDescriptor(opTensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -530,7 +548,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSetOpTensorDescriptor(
       opTensorDesc, opTensorOp, opTensorCompType, opTensorNanOpt);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -561,7 +580,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetOpTensorDescriptor(
       opTensorDesc, opTensorOp, opTensorCompType, opTensorNanOpt);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -587,7 +607,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyOpTensorDescriptor(opTensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -623,7 +644,8 @@ cudnnStatus_t CUDNNWINAPI cudnnOpTensor(cudnnHandle_t handle,
   const auto res = orig_cudnnOpTensor(
       handle, opTensorDesc, alpha1, aDesc, A, alpha2, bDesc, B, beta, cDesc, C);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -649,7 +671,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateReduceTensorDescriptor(reduceTensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -690,7 +713,8 @@ cudnnStatus_t CUDNNWINAPI
                                                        reduceTensorIndices,
                                                        reduceTensorIndicesType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -731,7 +755,8 @@ cudnnStatus_t CUDNNWINAPI
                                                        reduceTensorIndices,
                                                        reduceTensorIndicesType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -757,7 +782,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyReduceTensorDescriptor(reduceTensorDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -789,7 +815,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetReductionIndicesSize(
       handle, reduceTensorDesc, aDesc, cDesc, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -821,7 +848,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetReductionWorkspaceSize(
       handle, reduceTensorDesc, aDesc, cDesc, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -880,7 +908,8 @@ cudnnStatus_t CUDNNWINAPI
                                           C);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -906,7 +935,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetTensor(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnSetTensor(handle, yDesc, y, valuePtr);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -933,7 +963,8 @@ cudnnStatus_t CUDNNWINAPI cudnnScaleTensor(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnScaleTensor(handle, yDesc, y, alpha);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -959,7 +990,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateFilterDescriptor(filterDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -992,7 +1024,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSetFilter4dDescriptor(filterDesc, dataType, format, k, c, h, w);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1023,7 +1056,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnGetFilter4dDescriptor(filterDesc, dataType, format, k, c, h, w);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1055,7 +1089,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSetFilterNdDescriptor(filterDesc, dataType, format, nbDims, filterDimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1086,7 +1121,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetFilterNdDescriptor(
       filterDesc, nbDimsRequested, dataType, format, nbDims, filterDimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1110,7 +1146,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyFilterDescriptor(filterDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1136,7 +1173,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateConvolutionDescriptor(convDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1162,7 +1200,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetConvolutionMathType(
   const auto tic = now();
   const auto res = orig_cudnnSetConvolutionMathType(convDesc, mathType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1188,7 +1227,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionMathType(
   const auto tic = now();
   const auto res = orig_cudnnGetConvolutionMathType(convDesc, mathType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1214,7 +1254,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnSetConvolutionGroupCount(convDesc, groupCount);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1238,7 +1279,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionGroupCount(
   const auto tic = now();
   const auto res = orig_cudnnGetConvolutionGroupCount(convDesc, groupCount);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1274,7 +1316,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetConvolution2dDescriptor(
   const auto res = orig_cudnnSetConvolution2dDescriptor(
       convDesc, pad_h, pad_w, u, v, dilation_h, dilation_w, mode, computeType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1312,7 +1355,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolution2dDescriptor(
   const auto res = orig_cudnnGetConvolution2dDescriptor(
       convDesc, pad_h, pad_w, u, v, dilation_h, dilation_w, mode, computeType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1346,7 +1390,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetConvolution2dForwardOutputDim(
       convDesc, inputTensorDesc, filterDesc, n, c, h, w);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1380,7 +1425,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSetConvolutionNdDescriptor(
       convDesc, arrayLength, padA, filterStrideA, dilationA, mode, computeType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1426,7 +1472,8 @@ cudnnStatus_t CUDNNWINAPI
                                                         computeType);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1456,7 +1503,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetConvolutionNdForwardOutputDim(
       convDesc, inputTensorDesc, filterDesc, nbDims, tensorOuputDimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1480,7 +1528,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyConvolutionDescriptor(convDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1506,7 +1555,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnGetConvolutionForwardAlgorithmMaxCount(handle, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1554,7 +1604,8 @@ cudnnStatus_t CUDNNWINAPI
                                                              perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1615,7 +1666,8 @@ cudnnStatus_t CUDNNWINAPI
                                                                workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1650,7 +1702,8 @@ cudnnStatus_t CUDNNWINAPI
       handle, xDesc, wDesc, convDesc, yDesc, preference, memoryLimitInBytes, algo);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1696,7 +1749,8 @@ cudnnStatus_t CUDNNWINAPI
                                                                perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1728,7 +1782,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetConvolutionForwardWorkspaceSize(
       handle, xDesc, wDesc, convDesc, yDesc, algo, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1791,7 +1846,8 @@ cudnnStatus_t CUDNNWINAPI
                                                 y);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1867,7 +1923,8 @@ cudnnStatus_t CUDNNWINAPI cudnnConvolutionBiasActivationForward(
                                                               y);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -1898,7 +1955,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnConvolutionBackwardBias(handle, alpha, dyDesc, dy, beta, dbDesc, db);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1924,7 +1982,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnGetConvolutionBackwardFilterAlgorithmMaxCount(handle, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -1972,7 +2031,8 @@ cudnnStatus_t CUDNNWINAPI cudnnFindConvolutionBackwardFilterAlgorithm(
                                                                     perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2034,7 +2094,8 @@ cudnnStatus_t CUDNNWINAPI cudnnFindConvolutionBackwardFilterAlgorithmEx(
                                                          workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2069,7 +2130,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardFilterAlgorithm(
       handle, xDesc, dyDesc, convDesc, dwDesc, preference, memoryLimitInBytes, algo);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2115,7 +2177,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardFilterAlgorithm_v7(
                                                                       perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2147,7 +2210,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardFilterWorkspaceSize(
   const auto res = orig_cudnnGetConvolutionBackwardFilterWorkspaceSize(
       handle, xDesc, dyDesc, convDesc, gradDesc, algo, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2210,7 +2274,8 @@ cudnnStatus_t CUDNNWINAPI
                                                        dw);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2234,7 +2299,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnGetConvolutionBackwardDataAlgorithmMaxCount(handle, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2282,7 +2348,8 @@ cudnnStatus_t CUDNNWINAPI cudnnFindConvolutionBackwardDataAlgorithm(
                                                                   perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2343,7 +2410,8 @@ cudnnStatus_t CUDNNWINAPI cudnnFindConvolutionBackwardDataAlgorithmEx(
                                                                     workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2378,7 +2446,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardDataAlgorithm(
       handle, wDesc, dyDesc, convDesc, dxDesc, preference, memoryLimitInBytes, algo);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2424,7 +2493,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardDataAlgorithm_v7(
                                                                     perfResults);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2456,7 +2526,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetConvolutionBackwardDataWorkspaceSize(
   const auto res = orig_cudnnGetConvolutionBackwardDataWorkspaceSize(
       handle, wDesc, dyDesc, convDesc, dxDesc, algo, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2519,7 +2590,8 @@ cudnnStatus_t CUDNNWINAPI
                                                      dx);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -2546,7 +2618,8 @@ cudnnStatus_t CUDNNWINAPI cudnnIm2Col(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnIm2Col(handle, xDesc, x, wDesc, convDesc, colBuffer);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2580,7 +2653,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSoftmaxForward(cudnnHandle_t handle,
   const auto res =
       orig_cudnnSoftmaxForward(handle, algo, mode, alpha, xDesc, x, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2617,7 +2691,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSoftmaxBackward(cudnnHandle_t handle,
   const auto res = orig_cudnnSoftmaxBackward(
       handle, algo, mode, alpha, yDesc, y, dyDesc, dy, beta, dxDesc, dx);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2643,7 +2718,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreatePoolingDescriptor(poolingDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2693,7 +2769,8 @@ cudnnStatus_t CUDNNWINAPI
                                                     verticalStride,
                                                     horizontalStride);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2746,7 +2823,8 @@ cudnnStatus_t CUDNNWINAPI
                                                     verticalStride,
                                                     horizontalStride);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2780,7 +2858,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSetPoolingNdDescriptor(
       poolingDesc, mode, maxpoolingNanOpt, nbDims, windowDimA, paddingA, strideA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2825,7 +2904,8 @@ cudnnStatus_t CUDNNWINAPI
                                                     paddingA,
                                                     strideA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2854,7 +2934,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnGetPoolingNdForwardOutputDim(
       poolingDesc, inputTensorDesc, nbDims, outputTensorDimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2885,7 +2966,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnGetPooling2dForwardOutputDim(poolingDesc, inputTensorDesc, n, c, h, w);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2911,7 +2993,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyPoolingDescriptor(poolingDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2944,7 +3027,8 @@ cudnnStatus_t CUDNNWINAPI cudnnPoolingForward(cudnnHandle_t handle,
   const auto res =
       orig_cudnnPoolingForward(handle, poolingDesc, alpha, xDesc, x, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -2982,7 +3066,8 @@ cudnnStatus_t CUDNNWINAPI cudnnPoolingBackward(cudnnHandle_t handle,
   const auto res = orig_cudnnPoolingBackward(
       handle, poolingDesc, alpha, yDesc, y, dyDesc, dy, xDesc, x, beta, dxDesc, dx);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3008,7 +3093,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateActivationDescriptor(activationDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3038,7 +3124,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSetActivationDescriptor(activationDesc, mode, reluNanOpt, coef);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3066,7 +3153,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnGetActivationDescriptor(activationDesc, mode, reluNanOpt, coef);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3092,7 +3180,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyActivationDescriptor(activationDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3127,7 +3216,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnActivationForward(
       handle, activationDesc, alpha, xDesc, x, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3166,7 +3256,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnActivationBackward(
       handle, activationDesc, alpha, yDesc, y, dyDesc, dy, xDesc, x, beta, dxDesc, dx);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3191,7 +3282,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCreateLRNDescriptor(cudnnLRNDescriptor_t *normDes
   const auto tic = now();
   const auto res = orig_cudnnCreateLRNDescriptor(normDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3220,7 +3312,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetLRNDescriptor(cudnnLRNDescriptor_t normDesc,
   const auto tic = now();
   const auto res = orig_cudnnSetLRNDescriptor(normDesc, lrnN, lrnAlpha, lrnBeta, lrnK);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3250,7 +3343,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetLRNDescriptor(cudnnLRNDescriptor_t normDesc,
   const auto tic = now();
   const auto res = orig_cudnnGetLRNDescriptor(normDesc, lrnN, lrnAlpha, lrnBeta, lrnK);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3275,7 +3369,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDestroyLRNDescriptor(cudnnLRNDescriptor_t lrnDesc
   const auto tic = now();
   const auto res = orig_cudnnDestroyLRNDescriptor(lrnDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3310,7 +3405,8 @@ cudnnStatus_t CUDNNWINAPI cudnnLRNCrossChannelForward(cudnnHandle_t handle,
   const auto res = orig_cudnnLRNCrossChannelForward(
       handle, normDesc, lrnMode, alpha, xDesc, x, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3361,7 +3457,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnLRNCrossChannelBackward(
       handle, normDesc, lrnMode, alpha, yDesc, y, dyDesc, dy, xDesc, x, beta, dxDesc, dx);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3400,7 +3497,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDivisiveNormalizationForward(
   const auto res = orig_cudnnDivisiveNormalizationForward(
       handle, normDesc, mode, alpha, xDesc, x, means, temp, temp2, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3465,7 +3563,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDivisiveNormalizationBackward(
                                                            dx,
                                                            dMeans);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3493,7 +3592,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDeriveBNTensorDescriptor(derivedBnDesc, xDesc, mode);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3600,7 +3700,8 @@ cudnnStatus_t CUDNNWINAPI cudnnBatchNormalizationForwardTraining(
                                                                resultSaveInvVariance);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -3664,7 +3765,8 @@ cudnnStatus_t CUDNNWINAPI cudnnBatchNormalizationForwardInference(
                                                                 estimatedVariance,
                                                                 epsilon);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3748,7 +3850,8 @@ cudnnStatus_t CUDNNWINAPI cudnnBatchNormalizationBackward(
                                                         savedMean,
                                                         savedInvVariance);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3772,7 +3875,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateSpatialTransformerDescriptor(stDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3804,7 +3908,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSetSpatialTransformerNdDescriptor(
       stDesc, samplerType, dataType, nbDims, dimA);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3828,7 +3933,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroySpatialTransformerDescriptor(stDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3857,7 +3963,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnSpatialTfGridGeneratorForward(handle, stDesc, theta, grid);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3887,7 +3994,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSpatialTfGridGeneratorBackward(handle, stDesc, dgrid, dtheta);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3923,7 +4031,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnSpatialTfSamplerForward(
       handle, stDesc, alpha, xDesc, x, grid, beta, yDesc, y);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -3988,7 +4097,8 @@ cudnnStatus_t CUDNNWINAPI
                                                       betaDgrid,
                                                       dgrid);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4014,7 +4124,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateDropoutDescriptor(dropoutDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4040,7 +4151,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyDropoutDescriptor(dropoutDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4066,7 +4178,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDropoutGetStatesSize(cudnnHandle_t handle,
   const auto tic = now();
   const auto res = orig_cudnnDropoutGetStatesSize(handle, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4092,7 +4205,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDropoutGetReserveSpaceSize(cudnnTensorDescriptor_
   const auto tic = now();
   const auto res = orig_cudnnDropoutGetReserveSpaceSize(xdesc, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4124,7 +4238,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetDropoutDescriptor(cudnnDropoutDescriptor_t dro
   const auto res = orig_cudnnSetDropoutDescriptor(
       dropoutDesc, handle, dropout, states, stateSizeInBytes, seed);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4156,7 +4271,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res = orig_cudnnRestoreDropoutDescriptor(
       dropoutDesc, handle, dropout, states, stateSizeInBytes, seed);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4185,7 +4301,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetDropoutDescriptor(cudnnDropoutDescriptor_t dro
   const auto res =
       orig_cudnnGetDropoutDescriptor(dropoutDesc, handle, dropout, states, seed);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4219,7 +4336,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDropoutForward(cudnnHandle_t handle,
   const auto res = orig_cudnnDropoutForward(
       handle, dropoutDesc, xdesc, x, ydesc, y, reserveSpace, reserveSpaceSizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4258,7 +4376,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDropoutBackward(cudnnHandle_t handle,
   const auto res = orig_cudnnDropoutBackward(
       handle, dropoutDesc, dydesc, dy, dxdesc, dx, reserveSpace, reserveSpaceSizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4282,7 +4401,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCreateRNNDescriptor(cudnnRNNDescriptor_t *rnnDesc
   const auto tic = now();
   const auto res = orig_cudnnCreateRNNDescriptor(rnnDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4307,7 +4427,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDestroyRNNDescriptor(cudnnRNNDescriptor_t rnnDesc
   const auto tic = now();
   const auto res = orig_cudnnDestroyRNNDescriptor(rnnDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4334,7 +4455,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNForwardInferenceAlgorithmMaxCount(
   const auto res =
       orig_cudnnGetRNNForwardInferenceAlgorithmMaxCount(handle, rnnDesc, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4427,7 +4549,8 @@ cudnnStatus_t CUDNNWINAPI
                                                                 workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -4455,7 +4578,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNForwardTrainingAlgorithmMaxCount(
   const auto res =
       orig_cudnnGetRNNForwardTrainingAlgorithmMaxCount(handle, rnnDesc, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4554,7 +4678,8 @@ cudnnStatus_t CUDNNWINAPI
                                                                reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -4583,7 +4708,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNBackwardDataAlgorithmMaxCount(
   const auto tic = now();
   const auto res = orig_cudnnGetRNNBackwardDataAlgorithmMaxCount(handle, rnnDesc, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4700,7 +4826,8 @@ cudnnStatus_t CUDNNWINAPI
                                                             reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -4730,7 +4857,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNBackwardWeightsAlgorithmMaxCount(
   const auto res =
       orig_cudnnGetRNNBackwardWeightsAlgorithmMaxCount(handle, rnnDesc, count);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4811,7 +4939,8 @@ cudnnStatus_t CUDNNWINAPI
                                                                reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -4842,7 +4971,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCreatePersistentRNNPlan(cudnnRNNDescriptor_t rnnD
   const auto tic = now();
   const auto res = orig_cudnnCreatePersistentRNNPlan(rnnDesc, minibatch, dataType, plan);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4866,7 +4996,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetPersistentRNNPlan(cudnnRNNDescriptor_t rnnDesc
   const auto tic = now();
   const auto res = orig_cudnnSetPersistentRNNPlan(rnnDesc, plan);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4891,7 +5022,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDestroyPersistentRNNPlan(cudnnPersistentRNNPlan_t
   const auto tic = now();
   const auto res = orig_cudnnDestroyPersistentRNNPlan(plan);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4945,7 +5077,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetRNNDescriptor(
                                               algo,
                                               dataType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -4973,7 +5106,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetRNNProjectionLayers(cudnnHandle_t handle,
   const auto res =
       orig_cudnnSetRNNProjectionLayers(handle, rnnDesc, recProjSize, outProjSize);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5001,7 +5135,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNProjectionLayers(cudnnHandle_t handle,
   const auto res =
       orig_cudnnGetRNNProjectionLayers(handle, rnnDesc, recProjSize, outProjSize);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5029,7 +5164,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnSetRNNAlgorithmDescriptor(handle, rnnDesc, algoDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5081,7 +5217,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNDescriptor(cudnnHandle_t handle,
                                               algo,
                                               dataType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5107,7 +5244,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetRNNMatrixMathType(cudnnRNNDescriptor_t rnnDesc
   const auto tic = now();
   const auto res = orig_cudnnSetRNNMatrixMathType(rnnDesc, mType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5133,7 +5271,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNMatrixMathType(cudnnRNNDescriptor_t rnnDesc
   const auto tic = now();
   const auto res = orig_cudnnGetRNNMatrixMathType(rnnDesc, mType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5163,7 +5302,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNWorkspaceSize(cudnnHandle_t handle,
   const auto res =
       orig_cudnnGetRNNWorkspaceSize(handle, rnnDesc, seqLength, xDesc, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5193,7 +5333,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnGetRNNTrainingReserveSize(handle, rnnDesc, seqLength, xDesc, sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5221,7 +5362,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetRNNParamsSize(cudnnHandle_t handle,
   const auto res =
       orig_cudnnGetRNNParamsSize(handle, rnnDesc, xDesc, sizeInBytes, dataType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5271,7 +5413,8 @@ cudnnStatus_t CUDNNWINAPI
                                                         linLayerMatDesc,
                                                         linLayerMat);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5320,7 +5463,8 @@ cudnnStatus_t CUDNNWINAPI
                                                       linLayerBiasDesc,
                                                       linLayerBias);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5399,7 +5543,8 @@ cudnnStatus_t CUDNNWINAPI cudnnRNNForwardInference(cudnnHandle_t handle,
                                                  workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -5484,7 +5629,8 @@ cudnnStatus_t CUDNNWINAPI cudnnRNNForwardTraining(cudnnHandle_t handle,
                                                 reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -5589,7 +5735,8 @@ cudnnStatus_t CUDNNWINAPI cudnnRNNBackwardData(cudnnHandle_t handle,
                                              reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -5658,7 +5805,8 @@ cudnnStatus_t CUDNNWINAPI cudnnRNNBackwardWeights(cudnnHandle_t handle,
                                                 reserveSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -5685,7 +5833,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateCTCLossDescriptor(ctcLossDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5711,7 +5860,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetCTCLossDescriptor(cudnnCTCLossDescriptor_t ctc
   const auto tic = now();
   const auto res = orig_cudnnSetCTCLossDescriptor(ctcLossDesc, compType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5737,7 +5887,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetCTCLossDescriptor(cudnnCTCLossDescriptor_t ctc
   const auto tic = now();
   const auto res = orig_cudnnGetCTCLossDescriptor(ctcLossDesc, compType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5763,7 +5914,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyCTCLossDescriptor(ctcLossDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5831,7 +5983,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCTCLoss(
                                      workSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -5885,7 +6038,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetCTCLossWorkspaceSize(
                                                      ctcLossDesc,
                                                      sizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5911,7 +6065,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnCreateAlgorithmDescriptor(algoDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5937,7 +6092,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetAlgorithmDescriptor(cudnnAlgorithmDescriptor_t
   const auto tic = now();
   const auto res = orig_cudnnSetAlgorithmDescriptor(algoDesc, algorithm);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5963,7 +6119,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetAlgorithmDescriptor(
   const auto tic = now();
   const auto res = orig_cudnnGetAlgorithmDescriptor(algoDesc, algorithm);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -5989,7 +6146,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCopyAlgorithmDescriptor(
   const auto tic = now();
   const auto res = orig_cudnnCopyAlgorithmDescriptor(src, dest);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6015,7 +6173,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto tic = now();
   const auto res = orig_cudnnDestroyAlgorithmDescriptor(algoDesc);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6041,7 +6200,8 @@ cudnnStatus_t CUDNNWINAPI cudnnCreateAlgorithmPerformance(
   const auto tic = now();
   const auto res = orig_cudnnCreateAlgorithmPerformance(algoPerf, numberToCreate);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6070,7 +6230,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnSetAlgorithmPerformance(algoPerf, algoDesc, status, time, memory);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6099,7 +6260,8 @@ cudnnStatus_t CUDNNWINAPI
   const auto res =
       orig_cudnnGetAlgorithmPerformance(algoPerf, algoDesc, status, time, memory);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6125,7 +6287,8 @@ cudnnStatus_t CUDNNWINAPI cudnnDestroyAlgorithmPerformance(
   const auto tic = now();
   const auto res = orig_cudnnDestroyAlgorithmPerformance(algoPerf, numberToDestroy);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6151,7 +6314,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetAlgorithmSpaceSize(cudnnHandle_t handle,
   const auto res =
       orig_cudnnGetAlgorithmSpaceSize(handle, algoDesc, algoSpaceSizeInBytes);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6181,7 +6345,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSaveAlgorithm(cudnnHandle_t handle,
       orig_cudnnSaveAlgorithm(handle, algoDesc, algoSpace, algoSpaceSizeInBytes);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -6209,7 +6374,8 @@ cudnnStatus_t CUDNNWINAPI cudnnRestoreAlgorithm(cudnnHandle_t handle,
       orig_cudnnRestoreAlgorithm(handle, algoSpace, algoSpaceSizeInBytes, algoDesc);
   const auto toc = now();
   const json js  = {
-      {"function_ame", funName},
+      {"src", "cuDNN"},
+      {"function_name", funName},
       {"time_unit", "ns"},
       {"start", to_nanoseconds(tic)},
       {"end", to_nanoseconds(toc)},
@@ -6233,7 +6399,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetCallback(unsigned mask,
   const auto tic = now();
   const auto res = orig_cudnnSetCallback(mask, udata, fptr);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6257,7 +6424,8 @@ cudnnStatus_t CUDNNWINAPI cudnnGetCallback(unsigned *mask,
   const auto tic = now();
   const auto res = orig_cudnnGetCallback(mask, udata, fptr);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6309,7 +6477,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetRNNDescriptor_v6(cudnnHandle_t handle,
                                                  algo,
                                                  dataType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
@@ -6348,7 +6517,8 @@ cudnnStatus_t CUDNNWINAPI cudnnSetRNNDescriptor_v5(cudnnRNNDescriptor_t rnnDesc,
   const auto res = orig_cudnnSetRNNDescriptor_v5(
       rnnDesc, hiddenSize, numLayers, dropoutDesc, inputMode, direction, mode, dataType);
   const auto toc = now();
-  const json js  = {{"function_ame", funName},
+  const json js  = {{"src", "cuDNN"},
+                   {"function_name", funName},
                    {"time_unit", "ns"},
                    {"start", to_nanoseconds(tic)},
                    {"end", to_nanoseconds(toc)},
