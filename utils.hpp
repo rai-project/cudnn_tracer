@@ -13,8 +13,6 @@
 
 using json = nlohmann::json;
 
-#define convert_to_json(...) 0
-
 using timestamp_t = std::chrono::time_point<std::chrono::system_clock>;
 
 static timestamp_t now() {
