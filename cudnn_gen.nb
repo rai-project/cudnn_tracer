@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     24564,        538]
-NotebookOptionsPosition[     22925,        506]
-NotebookOutlinePosition[     23308,        523]
-CellTagsIndexPosition[     23265,        520]
+NotebookDataLength[     25272,        552]
+NotebookOptionsPosition[     23633,        520]
+NotebookOutlinePosition[     24016,        537]
+CellTagsIndexPosition[     23973,        534]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -275,29 +275,31 @@ Cell[BoxData[{
    "StringTemplate", "[", 
     "\"\<\n// `ii`\n`funProto` {\n   using fun_t = decltype(`funName`);\n   \
 static const std::string funName{\\\"`funName`\\\"};\n   static fun_t * \
-orig_`funName` = (fun_t *) (dlsym(RTLD_NEXT,\\\"`funName`\\\"));\n\n   const \
-auto tic = now();\n   const auto res = orig_`funName`(`funArgs`);\n   const \
-auto toc = now();\n   \n   if (is_record_time_enabled_q()) {\n      const \
-json js = {\n       {\\\"function_ame\\\", funName},\n       {\\\"time_unit\\\
-\", \\\"ns\\\"},\n       {\\\"start\\\", to_nanoseconds(tic)},\n       \
-{\\\"end\\\", to_nanoseconds(toc)},\n       {\\\"arguments\\\", \
-json::object({\n       `arguments`\n       })}\n      };\n      const auto \
-str = js.dump();\n      record_cudnn_time(str.c_str());\n   };\n  return res;\
-\n}\n\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+orig_`funName` = (fun_t *) dlsym(RTLD_NEXT,\\\"`funName`\\\");\n\n   \n   if \
+(!is_record_time_enabled_q()) {\n      return orig_`funName`(`funArgs`);\n   \
+}\n   const auto tic = now();\n   const auto res = orig_`funName`(`funArgs`);\
+\n   const auto toc = now();\n   const json js = {\n       \
+{\\\"function_ame\\\", funName},\n       {\\\"time_unit\\\", \\\"ns\\\"},\n   \
+    {\\\"start\\\", to_nanoseconds(tic)},\n       {\\\"end\\\", \
+to_nanoseconds(toc)},\n       {\\\"arguments\\\", json::object({\n       \
+`arguments`\n       })}\n      };\n      const auto str = js.dump();\n      \
+record_cudnn_time(str.c_str());\n   return res;\n}\n\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"voidTempl", "=", 
    RowBox[{
    "StringTemplate", "[", 
     "\"\<\n// `ii`\n`funProto` {\n   using fun_t = decltype(`funName`);\n   \
 static const std::string funName{\\\"`funName`\\\"};\n   static fun_t * \
-orig_`funName` = (fun_t *) (dlsym(RTLD_NEXT,\\\"`funName`\\\"));\n\n   const \
-auto tic = now();\n   orig_`funName`(`funArgs`);\n   const auto toc = now();\n\
-   \n   if (is_record_time_enabled_q()) {\n     const json js = {\n       {\\\
-\"function_ame\\\", funName},\n       {\\\"time_unit\\\", \\\"ns\\\"},\n      \
- {\\\"start\\\", to_nanoseconds(tic)},\n       {\\\"end\\\", \
+orig_`funName` = (fun_t *) dlsym(RTLD_NEXT,\\\"`funName`\\\");\n\n   \n   if \
+(!is_record_time_enabled_q()) { \n      orig_`funName`(`funArgs`);\n      \
+return \n   }\n\n   const auto tic = now();\n   orig_`funName`(`funArgs`);\n  \
+ const auto toc = now();\n\n   const json js = {\n       \
+{\\\"function_ame\\\", funName},\n       {\\\"time_unit\\\", \\\"ns\\\"},\n   \
+    {\\\"start\\\", to_nanoseconds(tic)},\n       {\\\"end\\\", \
 to_nanoseconds(toc)},\n       {\\\"arguments\\\", json::object({\n       \
-`arguments`\n       })}\n      };\n      const auto str = js.dump();\n      \
-record_cudnn_time(str.c_str());\n   };\n}\n\>\"", "]"}]}], ";"}]}], "Input",
+`arguments`\n       })}\n      };\n   const auto str = js.dump();\n   \
+record_cudnn_time(str.c_str());\n} \n\>\"", "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.744051620035857*^9, 3.744051708330956*^9}, {
    3.744051815951988*^9, 3.744051902528863*^9}, {3.744052161381064*^9, 
    3.744052169532848*^9}, {3.744052842949479*^9, 3.744052870342079*^9}, {
@@ -317,9 +319,11 @@ record_cudnn_time(str.c_str());\n   };\n}\n\>\"", "]"}]}], ";"}]}], "Input",
    3.744057222030863*^9}, {3.744057357917218*^9, 3.744057361970828*^9}, {
    3.744057498508765*^9, 3.7440575069949636`*^9}, {3.744057553452539*^9, 
    3.744057560275751*^9}, {3.74405837713947*^9, 3.7440584084834223`*^9}, {
-   3.744059235394108*^9, 3.744059246086437*^9}},
+   3.744059235394108*^9, 3.744059246086437*^9}, {3.74405936996126*^9, 
+   3.744059442401312*^9}, {3.7440594734422913`*^9, 3.7440594943232327`*^9}, {
+   3.7440595861825542`*^9, 3.7440595901443367`*^9}},
  CellLabel->
-  "In[927]:=",ExpressionUUID->"4ed45e93-d144-4897-bb4a-cb87934e3a63"],
+  "In[948]:=",ExpressionUUID->"4ed45e93-d144-4897-bb4a-cb87934e3a63"],
 
 Cell[BoxData[{
  RowBox[{
@@ -342,11 +346,18 @@ Cell[BoxData[{
      RowBox[{"StringContainsQ", "[", 
       RowBox[{"e", ",", 
        RowBox[{"s", "~~", "\"\<[\>\""}]}], "]"}], "||", "\[IndentingNewLine]", 
-     RowBox[{"StringContainsQ", "[", 
-      RowBox[{"e", ",", 
-       RowBox[{"\"\<_t\>\"", "~~", 
-        RowBox[{"WhitespaceCharacter", "..."}], "~~", " ", "s"}]}], "]"}], "||",
-      "\[IndentingNewLine]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"StringContainsQ", "[", 
+        RowBox[{"e", ",", 
+         RowBox[{"\"\<_t\>\"", "~~", 
+          RowBox[{"WhitespaceCharacter", "..."}], "~~", " ", "s"}]}], "]"}], "&&", 
+       RowBox[{"!", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"e", ",", 
+          RowBox[{"\"\<size_t\>\"", "~~", 
+           RowBox[{"WhitespaceCharacter", "..."}], "~~", " ", "s"}]}], 
+         "]"}]}]}], ")"}], "||", "\[IndentingNewLine]", 
      RowBox[{"StringContainsQ", "[", 
       RowBox[{"e", ",", 
        RowBox[{"\"\<void\>\"", "~~", 
@@ -357,9 +368,10 @@ Cell[BoxData[{
    3.744054540626555*^9}, 3.7440545861345987`*^9, {3.7440546693832684`*^9, 
    3.744054675708757*^9}, 3.744054956099806*^9, 3.744054997389533*^9, {
    3.7440550419491262`*^9, 3.74405505071509*^9}, 3.744059061301414*^9, {
-   3.744059132350298*^9, 3.744059139192223*^9}},
+   3.744059132350298*^9, 3.744059139192223*^9}, {3.744059682128963*^9, 
+   3.74405969041997*^9}},
  CellLabel->
-  "In[929]:=",ExpressionUUID->"37f36a88-d9e3-4e86-8ef4-f67e9e07a268"],
+  "In[957]:=",ExpressionUUID->"37f36a88-d9e3-4e86-8ef4-f67e9e07a268"],
 
 Cell[BoxData[{
  RowBox[{"ii", ":=", "1"}], "\[IndentingNewLine]", 
@@ -432,11 +444,11 @@ Cell[BoxData[{
    3.744058297264242*^9}, {3.74405835257603*^9, 3.744058368033806*^9}, {
    3.744058894164784*^9, 3.744058895634758*^9}},
  CellLabel->
-  "In[931]:=",ExpressionUUID->"12c1c781-6a42-4c76-92e0-1c280201f734"],
+  "In[959]:=",ExpressionUUID->"12c1c781-6a42-4c76-92e0-1c280201f734"],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"ii", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"ii", "=", "1"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"exp", "=", "\[IndentingNewLine]", 
    RowBox[{"StringRiffle", "[", "\[IndentingNewLine]", 
@@ -462,9 +474,9 @@ Cell[BoxData[{
    3.7440551713764*^9}, 3.744055497955531*^9, {3.744056489749304*^9, 
    3.744056523433805*^9}, {3.744058107313932*^9, 3.744058110230895*^9}, 
    3.7440581864074697`*^9, {3.7440582645251703`*^9, 3.7440582657635727`*^9}, 
-   3.744058306817576*^9},
+   3.744058306817576*^9, {3.744059505149218*^9, 3.744059505204513*^9}},
  CellLabel->
-  "In[933]:=",ExpressionUUID->"c7820935-75c7-41bc-b140-1a0954698915"],
+  "In[961]:=",ExpressionUUID->"c7820935-75c7-41bc-b140-1a0954698915"],
 
 Cell[CellGroupData[{
 
@@ -477,7 +489,7 @@ cudnn_tracer/cudnn_wrapper.cpp\>\"", ",", "exp", ",", "\"\<Text\>\""}],
  CellChangeTimes->{{3.7440539079930363`*^9, 3.744053931771693*^9}, {
   3.7440541143886747`*^9, 3.744054115243382*^9}},
  CellLabel->
-  "In[935]:=",ExpressionUUID->"c0e1c670-2e97-4fb0-87ad-41783948ce41"],
+  "In[963]:=",ExpressionUUID->"c0e1c670-2e97-4fb0-87ad-41783948ce41"],
 
 Cell[BoxData["\<\"/Users/abduld/.gvm/pkgsets/go1.10.3/global/src/github.com/\
 rai-project/cudnn_tracer/cudnn_wrapper.cpp\"\>"], "Output",
@@ -499,9 +511,11 @@ rai-project/cudnn_tracer/cudnn_wrapper.cpp\"\>"], "Output",
    3.744058190020739*^9}, {3.7440582516929417`*^9, 3.744058266857717*^9}, {
    3.744058299231846*^9, 3.744058307888302*^9}, 3.744058359024474*^9, {
    3.744058394925229*^9, 3.7440584116730947`*^9}, 3.744058897284338*^9, 
-   3.7440590641666603`*^9, 3.744059142763946*^9, 3.744059249724412*^9},
+   3.7440590641666603`*^9, 3.744059142763946*^9, 3.744059249724412*^9, {
+   3.744059498075309*^9, 3.744059506876457*^9}, 3.744059593503619*^9, 
+   3.744059693515401*^9},
  CellLabel->
-  "Out[935]=",ExpressionUUID->"84350bf3-ffea-4690-8951-23c00667fe75"]
+  "Out[963]=",ExpressionUUID->"3ce7b8bc-be3b-4497-8b9f-44e6628605f0"]
 }, Open  ]]
 },
 WindowSize->{1920, 1131},
@@ -532,13 +546,13 @@ Cell[CellGroupData[{
 Cell[9668, 244, 365, 8, 46, "Input",ExpressionUUID->"16629417-a24a-4c6a-891d-2ce469475fca"],
 Cell[10036, 254, 781, 13, 52, "Output",ExpressionUUID->"52910b25-3277-49ff-90d0-739c134a5161"]
 }, Open  ]],
-Cell[10832, 270, 3266, 51, 1659, "Input",ExpressionUUID->"4ed45e93-d144-4897-bb4a-cb87934e3a63"],
-Cell[14101, 323, 1686, 38, 295, "Input",ExpressionUUID->"37f36a88-d9e3-4e86-8ef4-f67e9e07a268"],
-Cell[15790, 363, 3450, 71, 574, "Input",ExpressionUUID->"12c1c781-6a42-4c76-92e0-1c280201f734"],
-Cell[19243, 436, 1663, 30, 481, "Input",ExpressionUUID->"c7820935-75c7-41bc-b140-1a0954698915"],
+Cell[10832, 270, 3506, 55, 1814, "Input",ExpressionUUID->"4ed45e93-d144-4897-bb4a-cb87934e3a63"],
+Cell[14341, 327, 2010, 46, 295, "Input",ExpressionUUID->"37f36a88-d9e3-4e86-8ef4-f67e9e07a268"],
+Cell[16354, 375, 3450, 71, 574, "Input",ExpressionUUID->"12c1c781-6a42-4c76-92e0-1c280201f734"],
+Cell[19807, 448, 1709, 30, 481, "Input",ExpressionUUID->"c7820935-75c7-41bc-b140-1a0954698915"],
 Cell[CellGroupData[{
-Cell[20931, 470, 422, 9, 46, "Input",ExpressionUUID->"c0e1c670-2e97-4fb0-87ad-41783948ce41"],
-Cell[21356, 481, 1553, 22, 52, "Output",ExpressionUUID->"84350bf3-ffea-4690-8951-23c00667fe75"]
+Cell[21541, 482, 422, 9, 46, "Input",ExpressionUUID->"c0e1c670-2e97-4fb0-87ad-41783948ce41"],
+Cell[21966, 493, 1651, 24, 52, "Output",ExpressionUUID->"3ce7b8bc-be3b-4497-8b9f-44e6628605f0"]
 }, Open  ]]
 }
 ]
